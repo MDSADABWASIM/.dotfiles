@@ -18,17 +18,12 @@ lvim.keys.normal_mode["<leader>Td"] = ":TodoTelescope<cr>"
 lvim.keys.normal_mode["<C:Telescope colorscheme-s>"] = ":w<cr>"
 
 --harpoon
-lvim.keys.normal_mode["<leader>a"] = mark.add_file
+
+lvim.builtin.which_key.mappings["a"] = {
+ mark.add_file, "Mark file"
+}
 lvim.keys.normal_mode["<C-e>"] = ui.toggle_quick_menu
-lvim.keys.normal_mode["<C-h>"] = function()
-	ui.nav_file(1)
-end
-lvim.keys.normal_mode["<C-j"] = function()
-	ui.nav_file(2)
-end
-lvim.keys.normal_mode["<C-k"] = function()
-	ui.nav_file(3)
-end
-lvim.keys.normal_mode["<C-l"] = function()
-	ui.nav_file(4)
-end
+lvim.keys.normal_mode["<C-h>"]= function() ui.nav_file(1) end
+lvim.keys.normal_mode["<C-j>"] = function() ui.nav_file(2) end
+lvim.keys.normal_mode["<C-k>"] = function() ui.nav_file(3) end
+lvim.keys.normal_mode["<C-l>"] = function() ui.nav_file(4) end

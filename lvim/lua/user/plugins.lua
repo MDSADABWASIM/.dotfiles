@@ -180,5 +180,5 @@ luasnip.filetype_extend("dart", {"flutter"})
 local dap = require("dap")
 dap.defaults.dart.exception_breakpoints = {"Error", "Exception"}
 -- for all exceptions
--- dap.defaults.dart.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
+ -- dap.defaults.dart.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
 
