@@ -20,16 +20,10 @@ wk.mappings["m"]={
     name='Mobile',
     
     e = {":FlutterEmulators<cr>","Emulators"},
-    r= {":FlutterReload<cr>","Reload"},
-
-    d ={
-        ":FlutterRun --flavor development --dart-define BACKEND_API_URL=https://app-camio-api-dev.azurewebsites.net/<cr>","Run on dev"},
-
-    s ={
-        ":FlutterRun --flavor staging --dart-define BACKEND_API_URL=https://app-camio-api-staging.azurewebsites.net/<cr>","Run on stg"},
-
-    p =
-        {    ":FlutterRun --flavor production --dart-define BACKEND_API_URL=https://app-camio-api-prd.azurewebsites.net/<cr>","Run on prod"},
+    r = {":FlutterReload<cr>","Reload"},
+    d = {":FlutterRun --flavor development --dart-define BACKEND_API_URL=https://app-camio-api-dev.azurewebsites.net/<cr>","Run on dev"},
+    s = {":FlutterRun --flavor staging --dart-define BACKEND_API_URL=https://app-camio-api-staging.azurewebsites.net/<cr>","Run on stg"},
+    p = {":FlutterRun --flavor production --dart-define BACKEND_API_URL=https://app-camio-api-prd.azurewebsites.net/<cr>","Run on prod"},
 
     R = {":FlutterRestart<cr>","Restart"},
     q = {":FlutterQuit<cr>","Quit"},
