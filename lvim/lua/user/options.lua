@@ -18,7 +18,7 @@ lvim.builtin.indentlines = {
 lvim.transparent_window = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.lualine.options.theme = "auto"
-lvim.colorscheme = "everforest"
+lvim.colorscheme = "tokyodark"
 lvim.lsp.automatic_configuration.skipped_servers = {"dartls"}
 lvim.builtin.which_key.setup.plugins.presets.z = true
 vim.opt_global.relativenumber = true
@@ -53,7 +53,8 @@ lvim.builtin.treesitter.ensure_installed = {
     "lua",
     "cmake",
     "cpp",
-    "dart"
+    "dart",
+    "go"
 }
 lvim.builtin.treesitter.ignore_install = {"help"}
 lvim.builtin.treesitter.indent = {
