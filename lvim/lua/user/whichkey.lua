@@ -16,6 +16,14 @@ lvim.builtin.which_key.mappings["dT"] = {
   ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Conditional breakpoint"
 }
 
+wk.mappings["n"] = {
+  name = 'Noice',
+  d = { ":Noice dismiss<cr>", "Dismiss" },
+  h = { ":Noice history<cr>", "History" },
+  l = { ":Noice last<cr>", "Last" },
+  e = { ":Noice error<cr>", "Errors" },
+}
+
 wk.mappings["m"] = {
   name = 'Mobile',
   e = { ":FlutterEmulators<cr>", "Emulators" },

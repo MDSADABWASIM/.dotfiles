@@ -178,20 +178,20 @@ lvim.plugins = {
       vim.cmd [[colorscheme tokyodark]]
     end,
   },
-  {
-    "ray-x/go.nvim",
-    dependencies = { -- optional packages
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("go").setup()
-    end,
-    event = { "CmdlineEnter" },
-    ft = { "go", 'gomod' },
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-  },
+  -- {
+  --   "ray-x/go.nvim",
+  --   dependencies = {
+  --     "ray-x/guihua.lua",
+  --     "neovim/nvim-lspconfig",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  --   config = function()
+  --     require("go").setup()
+  --   end,
+  --   event = { "CmdlineEnter" },
+  --   ft = { "go", 'gomod' },
+  --   build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  -- },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -212,6 +212,6 @@ luasnip.filetype_extend("dart", { "flutter" })
 
 
 local dap = require("dap")
-dap.defaults.dart.exception_breakpoints = { "Error", "Exception" }
+dap.defaults.dart.exception_breakpoints = { "Notice", "Warning", "Raised", "Uncaught", "Error", "Exception" }
 -- for all exceptions
 -- dap.defaults.dart.exception_breakpoints = { "Notice", "Warning", "Error", "Exception" }
