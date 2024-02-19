@@ -1,10 +1,9 @@
-
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 vim.wo.foldtext =
-    [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
 -- general
 lvim.log.level = "warn"
@@ -13,13 +12,13 @@ lvim.builtin.breadcrumbs.active = false
 lvim.builtin.wrap = true
 lvim.format_on_save.enabled = false
 lvim.builtin.indentlines = {
-    active = false
+  active = false
 }
 lvim.transparent_window = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.lualine.options.theme = "auto"
 lvim.colorscheme = "catppuccin"
-lvim.lsp.automatic_configuration.skipped_servers = {"dartls"}
+lvim.lsp.automatic_configuration.skipped_servers = { "dartls" }
 lvim.builtin.which_key.setup.plugins.presets.z = true
 vim.opt_global.relativenumber = true
 vim.opt_global.guifont = "FiraCode Nerd Font:h18"
@@ -28,11 +27,11 @@ vim.opt_global.showmode = true
 vim.opt_global.wrap = true
 
 if vim.g.neovide then
-    vim.g.neovide_cursor_vfx_mode = "railgun"
-    vim.g.neovide_transparency = 0.9
-    vim.g.neovide_scale_factor = 0.7
-    vim.g.neovide_font_hinting = "none"
-    vim.g.neovide_font_edging = "subpixelantialias"
+  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_scale_factor = 0.7
+  vim.g.neovide_font_hinting = "none"
+  vim.g.neovide_font_edging = "subpixelantialias"
 end
 
 vim.g.autosave = true
@@ -49,63 +48,72 @@ lvim.builtin.terminal.direction = "horizontal"
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-    "c",
-    "lua",
-    "cmake",
-    "cpp",
-    "dart",
-    "go"
+  "c",
+  "lua",
+  "cmake",
+  "cpp",
+  "dart",
+  "go"
 }
-lvim.builtin.treesitter.ignore_install = {"help"}
+lvim.builtin.treesitter.ignore_install = { "help" }
 lvim.builtin.treesitter.indent = {
-    enable = true,
-    disable = {"dart"}
+  enable = true,
+  disable = { "dart" }
 }
+
 require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
-    background = {
-        light = "latte",
-        dark = "mocha",
+  flavour = "mocha",   -- latte, frappe, macchiato, mocha
+  background = {
+    light = "latte",
+    dark = "mocha",
+  },
+  transparent_background = true,   -- disables setting the background color.
+  show_end_of_buffer = false,      -- shows the '~' characters after the end of buffers
+  term_colors = true,              -- sets terminal colors (e.g. `g:terminal_color_0`)
+  dim_inactive = {
+    enabled = false,               -- dims the background color of inactive window
+    shade = "dark",
+    percentage = 0.15,             -- percentage of the shade to apply to the inactive window
+  },
+  no_italic = false,               -- Force no italic
+  no_bold = false,                 -- Force no bold
+  no_underline = false,            -- Force no underline
+  styles = {                       -- Handles the styles of general hi groups (see `:h highlight-args`):
+    comments = { "italic" },       -- Change the style of comments
+    conditionals = { "italic" },
+    loops = {},
+    functions = {},
+    keywords = {},
+    strings = {},
+    variables = {},
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = {},
+    operators = {},
+  },
+  color_overrides = {},
+  custom_highlights = {},
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    harpoon = true,
+    noice = true,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
     },
-    transparent_background = true, -- disables setting the background color.
-    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-    term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
-    dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
-    },
-    no_italic = false, -- Force no italic
-    no_bold = false, -- Force no bold
-    no_underline = false, -- Force no underline
-    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = { "italic" }, -- Change the style of comments
-        conditionals = { "italic" },
-        loops = {},
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-    },
-    color_overrides = {},
-    custom_highlights = {},
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
-        notify = false,
-        harpoon = true,
-        noice = true,
-        mini = {
-            enabled = true,
-            indentscope_color = "",
-        },
-    },
+  },
 })
 
+local packer = require('packer')
+
+packer.init({
+  max_jobs = 10,
+  git = {
+    clone_timeout = 300
+  },
+})
