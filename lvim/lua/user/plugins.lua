@@ -150,18 +150,15 @@ lvim.plugins = {
     "nvim-treesitter/nvim-treesitter-context",
     config = function()
       require "treesitter-context".setup {
-        enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
-        max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
-        min_window_height = 0,    -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+        enable = true,
+        max_lines = 0,
         line_numbers = true,
-        multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
-        trim_scope = "outer",     -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-        mode = "cursor",          -- Line used to calculate context. Choices: 'cursor', 'topline'
-        -- Separator between context and content. Should be a single character string, like '-'.
-        -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+        multiline_threshold = 20,
+        trim_scope = "outer",
+        mode = "cursor",
         separator = nil,
-        zindex = 20,    -- The Z-index of the context window
-        on_attach = nil -- (fun(buf: integer): boolean) return false to disable attaching
+        zindex = 20,
+        on_attach = nil
       }
     end
   },
@@ -171,13 +168,51 @@ lvim.plugins = {
   {
     "tiagovla/tokyodark.nvim",
     opts = {
-      -- custom options here
     },
     config = function(_, opts)
-      require("tokyodark").setup(opts) -- calling setup is optional
+      require("tokyodark").setup(opts)
       vim.cmd [[colorscheme tokyodark]]
     end,
   },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
+  },
+  --Rust
+  {
+    "simrat39/rust-tools.nvim",
+    {
+      "saecki/crates.nvim",
+      version = "v0.3.0",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("crates").setup {
+          null_ls = {
+            enabled = true,
+            name = "crates.nvim",
+          },
+          popup = {
+            border = "rounded",
+          },
+        }
+      end,
+    },
+    {
+      "j-hui/fidget.nvim",
+      config = function()
+        require("fidget").setup()
+      end,
+    },
+  },
+  -- Go
   -- {
   --   "ray-x/go.nvim",
   --   dependencies = {
@@ -192,18 +227,6 @@ lvim.plugins = {
   --   ft = { "go", 'gomod' },
   --   build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   -- },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {},
-    keys = {
-      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-      { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
-    },
-  },
 }
 
 -- Flutter snippets enable

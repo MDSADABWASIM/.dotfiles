@@ -39,3 +39,24 @@ wk.mappings["m"] = {
   dt = { ":FlutterDevTools<cr>", "Devtools" },
   c = { ":FlutterLogClear<cr>", "Clear log" }
 }
+
+lvim.builtin.which_key.mappings["C"] = {
+  name = "Rust",
+  r = { ":RustRunnables<cr>", "Runnables" },
+  t = { ":lua _CARGO_TEST()<cr>", "Cargo Test" },
+  m = { ":RustExpandMacro<cr>", "Expand Macro" },
+  c = { ":RustOpenCargo<cr>", "Open Cargo" },
+  p = { ":RustParentModule<cr>", "Parent Module" },
+  d = { ":RustDebuggables<cr>", "Debuggables" },
+  v = { ":RustViewCrateGraph<cr>", "View Crate Graph" },
+  R = {
+    ":lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<cr>",
+    "Reload Workspace",
+  },
+  o = { ":RustOpenExternalDocs<cr>", "Open External Docs" },
+  y = { ":lua require'crates'.open_repository()<cr>", "[crates] open repository" },
+  P = { ":lua require'crates'.show_popup()<cr>", "[crates] show popup" },
+  i = { ":lua require'crates'.show_crate_popup()<cr>", "[crates] show info" },
+  f = { ":lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
+  D = { ":lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
+}
