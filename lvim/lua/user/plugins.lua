@@ -177,7 +177,22 @@ lvim.plugins = {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      modes = {
+        char = {
+          jump_labels = true
+        }
+      },
+      search = {
+        mode = function(str)
+          return "\\<" .. str
+        end,
+      },
+    },
+    remote_op = {
+      restore = false,
+      motion = true,
+    },
     keys = {
       { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
       { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
