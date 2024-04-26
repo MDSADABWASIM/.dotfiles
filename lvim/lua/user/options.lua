@@ -24,7 +24,7 @@ lvim.builtin.indentlines = {
 }
 lvim.transparent_window = true
 lvim.builtin.lualine.options.theme = "auto"
-lvim.colorscheme = "catppuccin"
+lvim.colorscheme = "nordic"
 lvim.lsp.automatic_configuration.skipped_servers = { "dartls", "rust_analyzer" }
 lvim.builtin.which_key.setup.plugins.presets.z = true
 vim.opt_global.relativenumber = true
