@@ -4,6 +4,15 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 vim.wo.foldtext =
 [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+
+-- Highlight when yanking (copying) text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 -- general
 lvim.log.level = "warn"
 lvim.builtin.dap.active = true
@@ -14,7 +23,6 @@ lvim.builtin.indentlines = {
   active = false
 }
 lvim.transparent_window = true
-lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.lualine.options.theme = "auto"
 lvim.colorscheme = "catppuccin"
 lvim.lsp.automatic_configuration.skipped_servers = { "dartls", "rust_analyzer" }
@@ -39,7 +47,9 @@ lvim.autosave_time = 500
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.side = "right"
+lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
+lvim.builtin.nvimtree.setup.filesystem_watchers.enable = false
 lvim.builtin.nvimtree.setup.diagnostics.show_on_dirs = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.terminal.open_mapping = "<c-t>"
