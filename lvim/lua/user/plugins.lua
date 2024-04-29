@@ -176,7 +176,22 @@ lvim.plugins = {
   },
   {
     "AlexvZyl/nordic.nvim",
-    name = "nordic"
+    name = "nordic",
+    config = function()
+      require 'nordic'.setup {
+        transparent_bg = true,
+        override = {
+          -- CursorLine = {
+          --   bg = '#cad2c5',
+          --   bold = false
+          -- },
+          Visual = {
+            bg = '#a68a64',
+            bold = false
+          }
+        }
+      }
+    end,
   },
   {
     "tiagovla/tokyodark.nvim",
