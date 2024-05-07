@@ -1,5 +1,7 @@
 local wk = lvim.builtin.which_key
 
+lvim.keys.normal_mode["<C-m>"] = ":m .+1<CR>=="
+
 wk.mappings["t"] = {
   name = "Trouble",
   x = { "<cmd>TroubleToggle<cr>", "Toggle" },
@@ -14,6 +16,13 @@ wk.mappings["t"] = {
 
 lvim.builtin.which_key.mappings["dT"] = {
   ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Conditional breakpoint"
+}
+
+lvim.builtin.which_key.mappings["ss"] = { ":Telescope grep_string<cr>",
+  "Find String",
+}
+lvim.builtin.which_key.mappings["si"] = { ":lua require('telescope').extensions.media_files.media_files()<cr>",
+  "Find Media",
 }
 
 wk.mappings["n"] = {

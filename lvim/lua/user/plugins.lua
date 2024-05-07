@@ -97,6 +97,15 @@ lvim.plugins = {
     "nvim-lua/plenary.nvim"
   },
   {
+    "nvim-lua/popup.nvim"
+  },
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    config = function()
+      require('telescope').load_extension('media_files')
+    end
+  },
+  {
     "dart-lang/dart-vim-plugin"
   },
   {
