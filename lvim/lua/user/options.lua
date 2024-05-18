@@ -70,13 +70,17 @@ lvim.builtin.treesitter.ensure_installed = {
   "cpp",
   "dart",
   "rust",
-  "go"
+  "go",
+  "typescript",
+  "tsx",
 }
 lvim.builtin.treesitter.ignore_install = { "help" }
 lvim.builtin.treesitter.indent = {
   enable = true,
   disable = { "dart" }
 }
+lvim.lsp.installer.setup.automatic_installation = { exclude = { "sourcery" } }
+lvim.builtin.treesitter.autotag.enable = true
 
 require("catppuccin").setup({
   flavour = "mocha", -- latte, frappe, macchiato, mocha

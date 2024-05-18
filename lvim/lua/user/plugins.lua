@@ -123,10 +123,10 @@ lvim.plugins = {
     config = function()
       require("noice").setup({
         presets = {
-          bottom_search = false,   -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
+          bottom_search = false,        -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
-          lsp_doc_border = true, -- add a border to hover docs and signature help
+          lsp_doc_border = true,        -- add a border to hover docs and signature help
         },
       })
     end
@@ -221,6 +221,9 @@ lvim.plugins = {
       vim.cmd [[colorscheme tokyodark]]
     end,
   },
+  {
+    'windwp/nvim-ts-autotag'
+  },
   -- {
   --   "folke/flash.nvim",
   --   event = "VeryLazy",
@@ -249,31 +252,31 @@ lvim.plugins = {
   --   },
   -- },
   --Rust
-  {
-    "simrat39/rust-tools.nvim",
-    {
-      "saecki/crates.nvim",
-      version = "v0.3.0",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      config = function()
-        require("crates").setup {
-          null_ls = {
-            enabled = true,
-            name = "crates.nvim",
-          },
-          popup = {
-            border = "rounded",
-          },
-        }
-      end,
-    },
-    {
-      "j-hui/fidget.nvim",
-      config = function()
-        require("fidget").setup()
-      end,
-    },
-  },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   {
+  --     "saecki/crates.nvim",
+  --     version = "v0.3.0",
+  --     dependencies = { "nvim-lua/plenary.nvim" },
+  --     config = function()
+  --       require("crates").setup {
+  --         null_ls = {
+  --           enabled = true,
+  --           name = "crates.nvim",
+  --         },
+  --         popup = {
+  --           border = "rounded",
+  --         },
+  --       }
+  --     end,
+  --   },
+  --   {
+  --     "j-hui/fidget.nvim",
+  --     config = function()
+  --       require("fidget").setup()
+  --     end,
+  --   },
+  -- },
   -- Go
   -- {
   --   "ray-x/go.nvim",
