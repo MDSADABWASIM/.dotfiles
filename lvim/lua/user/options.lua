@@ -79,7 +79,11 @@ lvim.builtin.treesitter.indent = {
   enable = true,
   disable = { "dart" }
 }
-lvim.lsp.installer.setup.automatic_installation = { exclude = { "sourcery" } }
+lvim.lsp.installer.setup.automatic_installation = {
+  exclude = { "sourcery", "denols", "angularls", "glint",
+    "quick_lint_js", "rome", "ember",
+  },
+}
 lvim.builtin.treesitter.autotag.enable = true
 
 require("catppuccin").setup({

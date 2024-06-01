@@ -49,16 +49,6 @@ wk.mappings["m"] = {
   c = { ":FlutterLogClear<cr>", "Clear log" }
 }
 
-wk.mappings["r"] = {
-  name = "ReactNative",
-  i = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" },
-  o = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" },
-  u = { "<cmd>TypescriptRemoveUnused<Cr>", "RemoveUnused" },
-  r = { "<cmd>TypescriptRenameFile<Cr>", "RenameFile" },
-  f = { "<cmd>TypescriptFixAll<Cr>", "FixAll" },
-  g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
-}
-
 -- lvim.builtin.which_key.mappings["C"] = {
 --   name = "Rust",
 --   r = { ":RustRunnables<cr>", "Runnables" },

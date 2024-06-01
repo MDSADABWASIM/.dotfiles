@@ -122,6 +122,11 @@ lvim.plugins = {
     },
     config = function()
       require("noice").setup({
+        lsp = {
+          hover = {
+            silent = true, -- set to true to not show a message if hover is not available
+          },
+        },
         presets = {
           bottom_search = false,        -- use a classic bottom cmdline for search
           command_palette = true,       -- position the cmdline and popupmenu together
@@ -224,6 +229,20 @@ lvim.plugins = {
   {
     'windwp/nvim-ts-autotag'
   },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      -- ...
+    end
+  }
   -- {
   --   "folke/flash.nvim",
   --   event = "VeryLazy",
@@ -297,6 +316,8 @@ lvim.plugins = {
 -- Flutter snippets enable
 local luasnip = require("luasnip")
 luasnip.filetype_extend("dart", { "flutter" })
+luasnip.filetype_extend("javascript", { "javascriptreact" })
+luasnip.filetype_extend("javascript", { "html" })
 
 
 local dap = require("dap")
