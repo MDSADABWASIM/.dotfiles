@@ -246,7 +246,12 @@ lvim.plugins = {
         hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.svg" },
       })
     end
-  }
+  },
+  {
+    "sotte/presenting.nvim",
+    opts = {},
+    cmd = { "Presenting" },
+  },
   -- {
   --   "folke/flash.nvim",
   --   event = "VeryLazy",
