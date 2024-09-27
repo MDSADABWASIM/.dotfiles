@@ -4,13 +4,12 @@ lvim.keys.normal_mode["<C-m>"] = ":m .+1<CR>=="
 
 wk.mappings["t"] = {
   name = "Trouble",
-  x = { "<cmd>TroubleToggle<cr>", "Toggle" },
+  x = { "<cmd>Trouble diagnostics toggle<cr>", "Toggle" },
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" }
+  d = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix toggle<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist toggle<cr>", "LocationList" },
 }
 
 
@@ -20,9 +19,6 @@ lvim.builtin.which_key.mappings["dT"] = {
 
 lvim.builtin.which_key.mappings["ss"] = { ":Telescope grep_string<cr>",
   "Find String",
-}
-lvim.builtin.which_key.mappings["si"] = { ":lua require('telescope').extensions.media_files.media_files()<cr>",
-  "Find Media",
 }
 
 wk.mappings["n"] = {

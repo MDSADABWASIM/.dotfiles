@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
 -- general
 lvim.log.level = "warn"
 lvim.builtin.dap.active = true
@@ -40,18 +41,30 @@ if vim.g.neovide then
   vim.g.neovide_font_hinting = "none"
   vim.g.neovide_font_edging = "subpixelantialias"
 end
-
 vim.g.autosave = true
 lvim.autosave = true
 lvim.autosave_time = 500
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
+local gheight = vim.api.nvim_list_uis()[1].height
+local gwidth = vim.api.nvim_list_uis()[1].width
+local width = 30
+local height = 30
+lvim.builtin.nvimtree.setup.view.float.open_win_config = {
+  relative = "editor",
+  width = width,
+  height = height,
+  row = (gheight - height) * 0.4,
+  col = (gwidth - width) * 0.5,
+}
+lvim.builtin.nvimtree.setup.view.float.open_win_config.border = "rounded"
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
 lvim.builtin.nvimtree.setup.filesystem_watchers.enable = false
 lvim.builtin.nvimtree.setup.diagnostics.show_on_dirs = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.view.float.enable = true
 lvim.builtin.terminal.open_mapping = "<c-t>"
 lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.telescope.extensions = {
