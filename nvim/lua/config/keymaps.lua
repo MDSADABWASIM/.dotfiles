@@ -7,6 +7,15 @@ local ui = require("harpoon.ui")
 local map = vim.keymap.set
 local del = vim.keymap.del
 
+map("n", "<leader>cj", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next Diagnostic" })
+map("n", "<leader>ck", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Prev Diagnostic" })
+map(
+  "n",
+  "<leader>ce",
+  "<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>",
+  { desc = "Error" }
+)
+
 -- Conditional breakpoint
 map(
   "n",

@@ -1,6 +1,14 @@
 return {
   "hrsh7th/nvim-cmp",
+  dependencies = { "supermaven-nvim" },
   opts = function(_, opts)
+    if vim.g.ai_cmp then
+      table.insert(opts.sources, 1, {
+        name = "supermaven",
+        group_index = 1,
+        priority = 100,
+      })
+    end
     local has_words_before = function()
       unpack = unpack or table.unpack
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
