@@ -16,25 +16,12 @@ map(
   { desc = "Error" }
 )
 
--- Conditional breakpoint
-map(
-  "n",
-  "<leader>dT",
-  ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
-  { desc = "Conditional breakpoint" }
-)
-
 -- Mobile group
 map("n", "<leader>m", "", { desc = "Mobile" }) -- Group header, no mapping
 
 map("n", "<leader>me", "<cmd>FlutterEmulators<cr>", { desc = "Emulators" })
 map("n", "<leader>mr", "<cmd>FlutterReload<cr>", { desc = "Reload" })
-map(
-  "n",
-  "<leader>md",
-  "<cmd>FlutterRun --flavor development --dart-define BACKEND_API_URL=https://app-camio-api-dev.azurewebsites.net/<cr>",
-  { desc = "Run on dev" }
-)
+map("n", "<leader>md", "<cmd>FlutterRun<cr>", { desc = "Run on dev" })
 map(
   "n",
   "<leader>ms",
@@ -51,7 +38,7 @@ map("n", "<leader>mR", "<cmd>FlutterRestart<cr>", { desc = "Restart" })
 map("n", "<leader>mq", "<cmd>FlutterQuit<cr>", { desc = "Quit" })
 map("n", "<leader>mD", "<cmd>FlutterDetach<cr>", { desc = "Detach" })
 map("n", "<leader>mt", "<cmd>FlutterOutlineToggle<cr>", { desc = "Toggle outline" })
-map("n", "<leader>mdt", "<cmd>FlutterDevTools<cr>", { desc = "Devtools" })
+map("n", "<leader>ms", "<cmd>FlutterDevTools<cr>", { desc = "Devtools" })
 map("n", "<leader>mc", "<cmd>FlutterLogClear<cr>", { desc = "Clear log" })
 
 -- Quit
@@ -60,7 +47,6 @@ map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit" })
 
 map("n", "<C-m>", "<cmd>m .+1<CR>==", { desc = "Move line down" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
-map("n", "<leader>c", "<cmd>bd<CR>", { desc = "Close buffer" })
 -- Paste and keep in visual mode
 map("v", "p", [["_dP]])
 
@@ -78,7 +64,7 @@ map("n", "<C-a>", "gg<S-v>G")
 
 -- toggle terminal
 map("n", "<C-t>", function()
-  LazyVim.terminal()
+  Snacks.terminal()
 end, { desc = "Terminal (cwd)" })
 map("t", "<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 

@@ -28,11 +28,18 @@ return {
             any = {
               { find = "Starting Supermaven" },
               { find = "Supermaven Free Tier" },
+              { find = "dartls: -32007: File is not being analyzed" },
             },
           },
           skip = true,
         },
       })
     end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
   },
 }

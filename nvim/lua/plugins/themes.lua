@@ -13,12 +13,14 @@ return {
     end,
   },
   {
-    "tiagovla/tokyodark.nvim",
-    opts = {},
-    config = function(_, opts)
-      require("tokyodark").setup(opts)
-      vim.cmd([[colorscheme tokyodark]])
-    end,
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
   {
     "LazyVim/LazyVim",
